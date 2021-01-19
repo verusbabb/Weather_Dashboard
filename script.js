@@ -28,7 +28,7 @@ var APIKey = "f21ee75183114c7c096d92749641d1f4&units=imperial";
 // var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
 //   "q=Lawrence,Kansas&appid=" + APIKey;
 
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=lawrence,kansas&appid=" + APIKey;
+var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=lawrence&appid=" + APIKey;
 
 // Here we run our AJAX call to the OpenWeatherMap API
 $.ajax({
@@ -45,13 +45,13 @@ $.ajax({
     console.log(response);
     
     // Create today's cityStats list
-    $("#mainScreen").append("<span class='card-title'>" + response.name + " weather details");
+    $("#mainScreen").append("<span class='card-title'>" + response.city.name + " weather details");
     var cityStats = $("<ul>");
     // var stat = $("<li>");
     $("#mainScreen").append(cityStats);
-    $(cityStats).after().append("<li>" + "Current temperature: " + response.main.temp.toFixed(0) + "° fahrenheit");
-    $(cityStats).after().append("<li>" + "Humidity: " + response.main.humidity + "%");
-    $(cityStats).after().append("<li>" + "Wind: " + response.wind.speed.toFixed(0) + " mph");
+    $(cityStats).after().append("<li>" + "Current temperature: " + response.list[0].main.temp.toFixed(0) + "° fahrenheit");
+    $(cityStats).after().append("<li>" + "Humidity: " + response.list[0].main.humidity + "%");
+    $(cityStats).after().append("<li>" + "Wind: " + response.list[0].wind.speed.toFixed(0) + " mph");
 
     
     
