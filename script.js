@@ -57,8 +57,6 @@ $.ajax({
     
   });
 
-  // This is my key for Google GeoCoding
-// var googleKey ="AIzaSyC8W412_VLMC4aFM8MbDtsMETKjrEFmkow"
-// var googleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=Mountain+View,+CA&key=" + googleKey;
+
 
 
