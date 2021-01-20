@@ -20,13 +20,10 @@ $("#searchBtn").click(function(event) {
             
 // Second api call to OneCall with lat and lon values       
             $.ajax({
-                url: 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + "&lon=" + lon + "&appid=f21ee75183114c7c096d92749641d1f4",
+                url: 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + "&lon=" + lon +"&units=imperial" + "&appid=f21ee75183114c7c096d92749641d1f4",
                 type: "GET",
                 dataType: "jsonp",
             })
-            // .then(function(data) {
-            //     console.log(data);
-            //     updatePage(data);
             .then(updatePage)
                 
         })
@@ -43,5 +40,13 @@ $("#searchBtn").click(function(event) {
 function updatePage(weatherData) {
     console.log(weatherData);
     console.log(city);
+
+    // updating current weather panel
+    $("#cityName").append("Current weather for " + city);
+    // var icon = $("<img src="'http://openweathermap.org/img/wn/' + weatherData.current.weather[0].icon + '@2x.png/>');
+    $("#currentTemp").append("Temperature: " + weatherData.current.temp.toFixed(0) + "° fahrenheit");
+    $("#windSpeed").append("Wind speed: " + weatherData.current.wind_speed.toFixed(0) + " mph")
+    $("#humidity").append("Humidity: " + weatherData.current.humidity + "%");
+    $("#uvIndex").append("UV Index: " + weatherData.current.uvi.toFixed(0));
 }
 }) //end of document.ready
