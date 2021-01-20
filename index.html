@@ -33,7 +33,7 @@
           <span class="card-title">City Search</span>
           <div class="input-field inline">
             <input id="search" type="input">
-            <button id="search" type="submit">Submit</button>
+            <button type="submit">Submit</button>
             <!-- <label for="search">City</label> -->
             <span class="helper-text white-text" data-error="wrong" data-success="right">Use format: Kansas City,
               KS</span>
@@ -65,70 +65,21 @@
       </div>
 
       <div class="row">
-        <div class="col s12 m12 offset-m1">
+        <div class="col s12 m12">
           <h5>5 day forecast:</h5>
         </div>
 
-        <div class="row">
-          <div class="col s12 m12 l2 offset-l1">
-            <div class="card card light-blue darken-4">
-              <div class="card-content white-text">
-                <span id="tomorrow0" class="card-title">1/18/21</span>
-                <i class='far fa-snowflake' style='font-size:24px'></i>
-                <p>Temp: 48F</p>
-                <p>Humidity: 33% </p>
-              </div>
-            </div>
-          </div>
+        <div class="row"></div>
+          <card id = "1" class = "col s12 m12 l2 z-depth-4 light-blue darken-4 white-text"></card>
+          <!-- <card class = "col s12 m12 l2 z-depth-4 light-blue darken-4 white-text"></card>
+          <card class = "col s12 m12 l2 z-depth-4 light-blue darken-4 white-text"></card>
+          <card class = "col s12 m12 l2 z-depth-4 light-blue darken-4 white-text"></card>
+          <card class = "col s12 m12 l2 z-depth-4 light-blue darken-4 white-text"></card> -->
 
-          <div class="col s12 m12 l2">
-            <div class="card light-blue darken-4">
-              <div class="card-content white-text">
-                <span id="tomorrow1" class="card-title">1/19/21</span>
-                <i class='fas fa-sun' style='font-size:24px'></i>
-                <p>Temp: 48F</p>
-                <p>Humidity: 33% </p>
-              </div>
-            </div>
-          </div>
 
-          <div class="col s12 m12 l2">
-            <div class="card light-blue darken-4">
-              <div class="card-content white-text">
-                <span id="tomorrow2" class="card-title">1/20/21</span>
-                <i class='fas fa-cloud-rain' style='font-size:24px'></i>
-                <p>Temp: 48F</p>
-                <p>Humidity: 33% </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m12 l2">
-            <div class="card light-blue darken-4">
-              <div class="card-content white-text">
-                <span id="tomorrow3" class="card-title left-align">1/21/21</span>
-                <i class='fas fa-cloud-rain' style='font-size:24px'></i>
-                <p>Temp: 48F</p>
-                <p>Humidity: 33% </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m12 l2">
-            <div class="card light-blue darken-4">
-              <div class="card-content white-text">
-                <span id="tomorrow4" class="card-title flow-text">1/22/21</span>
-                <i class='fas fa-cloud-rain' style='font-size:24px'></i>
-                <p>Temp: 48F</p>
-                <p>Humidity: 33% </p>
-              </div>
-            </div>
-          </div>
-
-        </div>
       </div>
     </div>
-  </div>
+  </div>    
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
