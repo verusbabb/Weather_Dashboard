@@ -32,7 +32,7 @@ $.ajax({
   method: "GET"
 })
   // We store all of the retrieved data inside of an object called "response"
-  .then(function (response) {
+  .then(function(response) {
 
     // Log the queryURL
     console.log(queryURL);
@@ -42,28 +42,28 @@ $.ajax({
 
 
 
-    // Create and display current weather stats
-    $("#mainScreen").append("<span class='card-title'>" + response.city.name + " current weather:");
-    var cityStats = $("<ul>").append(temp, wind, humidity);
-    $("#mainScreen").append(cityStats);
-    var temp = $("<li>").append("Current temperature: " + response.list[0].main.temp.toFixed(0) + "° fahrenheit");
-    var wind = $("<li>").append("Wind: " + response.list[0].wind.speed.toFixed(0) + " mph");
-    var humidity = $("<li>").append("Humidity: " + response.list[0].main.humidity + "%");
-    cityStats.append(temp, wind, humidity);
+    // // Create and display current weather stats
+    // $("#mainScreen").append("<span class='card-title'>" + response.city.name + " current weather:");
+    // var cityStats = $("<ul>").append(temp, wind, humidity);
+    // $("#mainScreen").append(cityStats);
+    // var temp = $("<li>").append("Current temperature: " + response.list[0].main.temp.toFixed(0) + "° fahrenheit");
+    // var wind = $("<li>").append("Wind: " + response.list[0].wind.speed.toFixed(0) + " mph");
+    // var humidity = $("<li>").append("Humidity: " + response.list[0].main.humidity + "%");
+    // cityStats.append(temp, wind, humidity);
     
 
-    //Create and display 5 day forecast data
-    var cityStats0 = $("<ul>").append(date0, icon, temp0, wind0, humidity0);
-    $("card").append(cityStats0);
-    var date0 = $("<h5>").append(tomorrow0);
-    var icon = $('<img src="http://openweathermap.org/img/wn/04n@2x.png"/>');
-    var temp0 = $("<li>").append("Temp: " + response.list[0].main.temp.toFixed(0) + "°");
-    var wind0 = $("<li>").append("Wind: " + response.list[0].wind.speed.toFixed(0) + " mph");
-    var humidity0 = $("<li>").append("Humidity: " + response.list[0].main.humidity + "%");
-    cityStats0.append(date0, icon, temp0, wind0, humidity0);
+    // //Create and display 5 day forecast data
+    // var cityStats0 = $("<ul>").append(date0, icon, temp0, wind0, humidity0);
+    // $("card").append(cityStats0);
+    // var date0 = $("<h5>").append(tomorrow0);
+    // var icon = $('<img src="http://openweathermap.org/img/wn/04n@2x.png"/>');
+    // var temp0 = $("<li>").append("Temp: " + response.list[0].main.temp.toFixed(0) + "°");
+    // var wind0 = $("<li>").append("Wind: " + response.list[0].wind.speed.toFixed(0) + " mph");
+    // var humidity0 = $("<li>").append("Humidity: " + response.list[0].main.humidity + "%");
+    // cityStats0.append(date0, icon, temp0, wind0, humidity0);
     
     
-    console.log(response.list[0].weather[0].icon);
+    // console.log(response.list[0].weather[0].icon);
     
 
   });
