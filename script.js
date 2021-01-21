@@ -1,8 +1,12 @@
 $(document).ready(function () {
 
+    
+
     city = "";
     // Click function to capture the city input
     $("#searchBtn").click(function (event) {
+        event.preventDefault();
+        
 
         city = $("#search").val().trim();
         // Conditional to ensure user enters text before click
@@ -60,7 +64,7 @@ $(document).ready(function () {
         var wind1 = $("<div>").append("Wind: " + weatherData.daily[1].wind_speed.toFixed(0) + " mph");
         var humidity1 = $("<div>").append("Humidity: " + weatherData.daily[1].humidity + "%");
         $("#forecast1").append(icon1, date1, temp1, wind1, humidity1);
-        $("#forecast1").addClass("col s12 m12 l2 offset-s1 col-content z-depth-4 card light-blue darken-4 card-content white-text")
+        $("#forecast1").addClass("col s12 m12 l2 offset-s1 col-content z-depth-4 card-panel light-blue darken-4 card-content white-text")
 
         //forecast day2
         var readableDate = new Date(weatherData.daily[2].dt *1000).toLocaleDateString("en-US");var temp = $("<div>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° f");
