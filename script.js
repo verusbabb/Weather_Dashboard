@@ -48,5 +48,12 @@ function updatePage(weatherData) {
     $("#windSpeed").append("Wind speed: " + weatherData.current.wind_speed.toFixed(0) + " mph")
     $("#humidity").append("Humidity: " + weatherData.current.humidity + "%");
     $("#uvIndex").append("UV Index: " + weatherData.current.uvi.toFixed(0));
+
+    for (var i=0; i<4; i++) {
+        console.log(i);
+        var foreCastDiv =$("<div>").append("Temp: " + weatherData.current.temp.toFixed(0) + "° f");
+        $("#fiveDay").append(foreCastDiv);
+
+    }
 }
 }) //end of document.ready
