@@ -14,7 +14,7 @@ $(document).ready(function () {
 
             // Original api call to get lat and lon
             $.ajax({
-                url: 'http://api.openweathermap.org/data/2.5/weather?q=' + city + "&units=imperial" + "&APPID=f21ee75183114c7c096d92749641d1f4",
+                url: 'https://api.openweathermap.org/data/2.5/weather?q=' + city + "&units=imperial" + "&APPID=f21ee75183114c7c096d92749641d1f4",
                 type: "GET",
                 dataType: "jsonp",
             })
@@ -47,7 +47,8 @@ $(document).ready(function () {
 
         // updating current weather panel
         $("#cityName").append("Current weather for " + city);
-        // var icon = $("<img src="'http://openweathermap.org/img/wn/' + weatherData.current.weather[0].icon + '@2x.png/>');
+        var icon = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.current.weather[0].icon + '@2x.png')
+        $("#currentIcon").append(icon);
         $("#currentTemp").append("Temperature: " + weatherData.current.temp.toFixed(0) + "° fahrenheit");
         $("#windSpeed").append("Wind speed: " + weatherData.current.wind_speed.toFixed(0) + " mph")
         $("#humidity").append("Humidity: " + weatherData.current.humidity + "%");
