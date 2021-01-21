@@ -75,7 +75,7 @@ $(document).ready(function () {
         var wind2 = $("<div>").append("Wind: " + weatherData.daily[2].wind_speed.toFixed(0) + " mph");
         var humidity2 = $("<div>").append("Humidity: " + weatherData.daily[2].humidity + "%");
         $("#forecast2").append(icon2, date2, temp2, wind2, humidity2);
-        $("#forecast2").addClass("col s12 m12 l2 offset-s2 col-content z-depth-4 card light-blue darken-4 card-content white-text")
+        $("#forecast2").addClass("col s12 m12 l2 offset-s1 col-content z-depth-4 card light-blue darken-4 card-content white-text")
 
         //forecast day3
         var readableDate = new Date(weatherData.daily[3].dt *1000).toLocaleDateString("en-US");var temp = $("<div>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° f");
@@ -85,7 +85,7 @@ $(document).ready(function () {
         var wind3 = $("<div>").append("Wind: " + weatherData.daily[3].wind_speed.toFixed(0) + " mph");
         var humidity3 = $("<div>").append("Humidity: " + weatherData.daily[3].humidity + "%");
         $("#forecast3").append(icon3, date3, temp3, wind3, humidity3);
-        $("#forecast3").addClass("col s12 m12 l2 offset-s2 col-content z-depth-4 card light-blue darken-4 card-content white-text")
+        $("#forecast3").addClass("col s12 m12 l2 offset-s1 col-content z-depth-4 card light-blue darken-4 card-content white-text")
 
         //forecast day4
         var readableDate = new Date(weatherData.daily[4].dt *1000).toLocaleDateString("en-US");var temp = $("<div>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° f");
@@ -95,7 +95,7 @@ $(document).ready(function () {
         var wind4 = $("<div>").append("Wind: " + weatherData.daily[4].wind_speed.toFixed(0) + " mph");
         var humidity4 = $("<div>").append("Humidity: " + weatherData.daily[4].humidity + "%");
         $("#forecast4").append(icon4, date4, temp4, wind4, humidity4);
-        $("#forecast4").addClass("col s12 m12 l2 offset-s2 col-content z-depth-4 card light-blue darken-4 card-content white-text")
+        $("#forecast4").addClass("col s12 m12 l2 offset-s1 col-content z-depth-4 card light-blue darken-4 card-content white-text")
 
         //forecast day5
         var readableDate = new Date(weatherData.daily[5].dt *1000).toLocaleDateString("en-US");var temp = $("<div>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° f");
@@ -105,7 +105,7 @@ $(document).ready(function () {
         var wind5 = $("<div>").append("Wind: " + weatherData.daily[5].wind_speed.toFixed(0) + " mph");
         var humidity5 = $("<div>").append("Humidity: " + weatherData.daily[5].humidity + "%");
         $("#forecast5").append(icon5, date5, temp5, wind5, humidity5);
-        $("#forecast5").addClass("col s12 m12 l2 offset-s2 col-content z-depth-4 card light-blue darken-4 card-content white-text")
+        $("#forecast5").addClass("col s12 m12 l2 offset-s1 col-content z-depth-4 card light-blue darken-4 card-content white-text")
 
     }
 }) //end of document.ready
