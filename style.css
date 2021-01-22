@@ -18,3 +18,10 @@ body {
   font-size: 1.3rem;
   margin-left: 10px;
 }
+
+#forecasts {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 0;
+  margin-right: 1.75rem;
+}

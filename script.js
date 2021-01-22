@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     // a few required global vars
     var city="";
-    var queryURL="";
+    // var queryURL="";
     var cityHistory = [];
 
     // Retrieve any existing local storage
@@ -15,20 +15,9 @@ $(document).ready(function () {
             console.log(cityHistory);
         }
 
-
-    // Click function to capture the city input
-    $("#searchBtn").click(function (event) {
-        event.preventDefault();
-        
-        city = $("#search").val().trim();
-
-        // Conditional to ensure user enters text before click
-        if (city != '') {
-            city = city.charAt(0).toUpperCase() + city.slice(1);
-
-            // Original api call to get lat and lon
+        function runAPI(myCity) {
             $.ajax({
-                url: 'https://api.openweathermap.org/data/2.5/weather?q=' + city + "&units=imperial" + "&APPID=f21ee75183114c7c096d92749641d1f4",
+                url: 'https://api.openweathermap.org/data/2.5/weather?q=' + myCity + "&units=imperial" + "&APPID=f21ee75183114c7c096d92749641d1f4",
                 type: "GET",
                 dataType: "jsonp",
             })
@@ -48,10 +37,28 @@ $(document).ready(function () {
                     .then(updatePage)
                 })
         }
+
+
+    // Click function to capture the city input
+    $("#searchBtn").click(function (event) {
+        event.preventDefault();
+        
+        city = $("#search").val().trim();
+
+        // Conditional to ensure user enters text before click
+        if (city != '') {
+            city = city.charAt(0).toUpperCase() + city.slice(1);
+            
+            // Original api call to get lat and lon
+            runAPI(city);
+        }
         else {
             $("#error").html('**ERROR: A city name must be entered**')
         }
+
+
     }) //end of click event
+
 
     /**
      * takes API data (JSON/object) and turns it into elements on the page
@@ -73,7 +80,8 @@ $(document).ready(function () {
         
         // writing recent search to search history
         // for (var 1=0; i<cityHistory.length; i++) {
-            var oldSearch = $("<a>").attr("href", "")
+            var oldSearch = $("<button>");
+            oldSearch.append(cityHistory[0].searchedCity).addClass("text-black");
             console.log(oldSearch);
             oldSearch.append(cityHistory[0].searchedCity).addClass("white-text searchHistory");
             $("#myHistory").append(oldSearch);
@@ -90,51 +98,21 @@ $(document).ready(function () {
 
 
         
+        
+
 
         //updating forecast day1 div
-        var readableDate = new Date(weatherData.daily[1].dt *1000).toLocaleDateString("en-US");
-        var date1 = $("<h6>").append(readableDate).addClass("center-align");;
-        var icon1 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[1].weather[0].icon + ".png")
-        var temp1 = $("<p>").append("Temp: " + weatherData.daily[1].temp.max.toFixed(0) + "° F");
-        var wind1 = $("<p>").append("Wind: " + weatherData.daily[1].wind_speed.toFixed(0) + " mph");
-        var humidity1 = $("<p>").append("Humidity: " + weatherData.daily[1].humidity + "%");
-        $("#forecast1").append(date1, icon1, temp1, wind1, humidity1);
-
-        //forecast day2
-        var readableDate = new Date(weatherData.daily[2].dt *1000).toLocaleDateString("en-US");
-        var date2 = $("<h6>").append(readableDate).addClass("center-align");;
-        var icon2 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[2].weather[0].icon + '.png')
-        var temp2 = $("<p>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° F");
-        var wind2 = $("<p>").append("Wind: " + weatherData.daily[2].wind_speed.toFixed(0) + " mph");
-        var humidity2 = $("<p>").append("Humidity: " + weatherData.daily[2].humidity + "%");
-        $("#forecast2").append(date2, icon2, temp2, wind2, humidity2);
-
-        //forecast day3
-        var readableDate = new Date(weatherData.daily[3].dt *1000).toLocaleDateString("en-US");var temp = $("<div>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° f");
-        var date3 = $("<h6>").append(readableDate).addClass("center-align");;
-        var icon3 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[3].weather[0].icon + '.png')
-        var temp3 = $("<p>").append("Temp: " + weatherData.daily[3].temp.max.toFixed(0) + "° F");
-        var wind3 = $("<p>").append("Wind: " + weatherData.daily[3].wind_speed.toFixed(0) + " mph");
-        var humidity3 = $("<p>").append("Humidity: " + weatherData.daily[3].humidity + "%");
-        $("#forecast3").append(date3, icon3, temp3, wind3, humidity3);
-
-        //forecast day4
-        var readableDate = new Date(weatherData.daily[4].dt *1000).toLocaleDateString("en-US");var temp = $("<div>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° f");
-        var date4 = $("<h6>").append(readableDate).addClass("center-align");
-        var icon4 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[4].weather[0].icon + '.png').addClass("center-align");
-        var temp4 = $("<p>").append("Temp: " + weatherData.daily[4].temp.max.toFixed(0) + "° F");
-        var wind4 = $("<p>").append("Wind: " + weatherData.daily[4].wind_speed.toFixed(0) + " mph");
-        var humidity4 = $("<p>").append("Humidity: " + weatherData.daily[4].humidity + "%");
-        $("#forecast4").append(date4, icon4, temp4, wind4, humidity4);
-
-        //forecast day5
-        var readableDate = new Date(weatherData.daily[5].dt *1000).toLocaleDateString("en-US");var temp = $("<div>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° f");
-        var date5 = $("<h6>").append(readableDate).addClass("center-align");;
-        var icon5 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[5].weather[0].icon + '.png');
-        var temp5 = $("<p>").append("Temp: " + weatherData.daily[5].temp.max.toFixed(0) + "° F");
-        var wind5 = $("<p>").append("Wind: " + weatherData.daily[5].wind_speed.toFixed(0) + " mph");
-        var humidity5 = $("<p>").append("Humidity: " + weatherData.daily[5].humidity + "%");
-        $("#forecast5").append(date5, icon5, temp5, wind5, humidity5);
+        for (var j=1; j<6; j++) {
+        var forecastDiv = $('<div id="forecast' + j + '" class= "card card-content col s12 m12 l2 z-depth-4 light-blue darken-4 white-text flow-text forecastMargin"></div>');
+        var readableDate = new Date(weatherData.daily[j].dt *1000).toLocaleDateString("en-US");
+        var date1 = $("<h6>").append(readableDate).addClass("center-align");
+        var icon1 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[j].weather[0].icon + ".png");
+        var temp1 = $("<p>").append("Temp: " + weatherData.daily[j].temp.max.toFixed(0) + "° F");
+        var wind1 = $("<p>").append("Wind: " + weatherData.daily[j].wind_speed.toFixed(0) + " mph");
+        var humidity1 = $("<p>").append("Humidity: " + weatherData.daily[j].humidity + "%");
+        forecastDiv.append(date1, icon1, temp1, wind1, humidity1);
+        $("#forecasts").append(forecastDiv);
+        }
 
     }
 }) //end of document.ready
