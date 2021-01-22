@@ -17,6 +17,7 @@ body {
 .searchHistory {
   font-size: 1.3rem;
   margin-left: 10px;
+  color: black;
 }
 
 #forecasts {
