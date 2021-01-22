@@ -11,6 +11,7 @@ $(document).ready(function () {
         city = $("#search").val().trim();
         // Conditional to ensure user enters text before click
         if (city != '') {
+            city = city.charAt(0).toUpperCase() + city.slice(1);
 
             // Original api call to get lat and lon
             $.ajax({
@@ -46,7 +47,7 @@ $(document).ready(function () {
         console.log(city);
 
         // updating current weather panel
-        $("#cityName").append("Current weather for " + city);
+        $("#cityName").append("Current weather for " + city + ":");
         var icon = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.current.weather[0].icon + '@2x.png')
         $("#currentIcon").append(icon);
         $("#currentTemp").append("Temperature: " + weatherData.current.temp.toFixed(0) + "° fahrenheit");
@@ -59,53 +60,48 @@ $(document).ready(function () {
 
         //forecast day1
         var readableDate = new Date(weatherData.daily[1].dt *1000).toLocaleDateString("en-US");
-        var date1 = $("<h6>").append(readableDate);
-        var icon1 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[1].weather[0].icon + '@2x.png')
-        var temp1 = $("<div>").append("Temp: " + weatherData.daily[1].temp.max.toFixed(0) + "° f");
-        var wind1 = $("<div>").append("Wind: " + weatherData.daily[1].wind_speed.toFixed(0) + " mph");
-        var humidity1 = $("<div>").append("Humidity: " + weatherData.daily[1].humidity + "%");
-        $("#forecast1").append(icon1, date1, temp1, wind1, humidity1);
-        $("#forecast1").addClass("col s12 m12 l2 offset-s1 col-content z-depth-4 card-panel light-blue darken-4 card-content white-text")
+        var date1 = $("<h6>").append(readableDate).addClass("center-align");;
+        var icon1 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[1].weather[0].icon + ".png")
+        var temp1 = $("<p>").append("Temp: " + weatherData.daily[1].temp.max.toFixed(0) + "° f");
+        var wind1 = $("<p>").append("Wind: " + weatherData.daily[1].wind_speed.toFixed(0) + " mph");
+        var humidity1 = $("<p>").append("Humidity: " + weatherData.daily[1].humidity + "%");
+        $("#forecast1").append(date1, icon1, temp1, wind1, humidity1);
 
         //forecast day2
-        var readableDate = new Date(weatherData.daily[2].dt *1000).toLocaleDateString("en-US");var temp = $("<div>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° f");
-        var date2 = $("<h6>").append(readableDate);
-        var icon2 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[2].weather[0].icon + '@2x.png')
-        var temp2 = $("<div>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° f");
-        var wind2 = $("<div>").append("Wind: " + weatherData.daily[2].wind_speed.toFixed(0) + " mph");
-        var humidity2 = $("<div>").append("Humidity: " + weatherData.daily[2].humidity + "%");
-        $("#forecast2").append(icon2, date2, temp2, wind2, humidity2);
-        $("#forecast2").addClass("col s12 m12 l2 offset-s1 col-content z-depth-4 card light-blue darken-4 card-content white-text")
+        var readableDate = new Date(weatherData.daily[2].dt *1000).toLocaleDateString("en-US");
+        var date2 = $("<h6>").append(readableDate).addClass("center-align");;
+        var icon2 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[2].weather[0].icon + '.png')
+        var temp2 = $("<p>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° f");
+        var wind2 = $("<p>").append("Wind: " + weatherData.daily[2].wind_speed.toFixed(0) + " mph");
+        var humidity2 = $("<p>").append("Humidity: " + weatherData.daily[2].humidity + "%");
+        $("#forecast2").append(date2, icon2, temp2, wind2, humidity2);
 
         //forecast day3
         var readableDate = new Date(weatherData.daily[3].dt *1000).toLocaleDateString("en-US");var temp = $("<div>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° f");
-        var date3 = $("<h6>").append(readableDate);
-        var icon3 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[3].weather[0].icon + '@2x.png')
-        var temp3 = $("<div>").append("Temp: " + weatherData.daily[3].temp.max.toFixed(0) + "° f");
-        var wind3 = $("<div>").append("Wind: " + weatherData.daily[3].wind_speed.toFixed(0) + " mph");
-        var humidity3 = $("<div>").append("Humidity: " + weatherData.daily[3].humidity + "%");
-        $("#forecast3").append(icon3, date3, temp3, wind3, humidity3);
-        $("#forecast3").addClass("col s12 m12 l2 offset-s1 col-content z-depth-4 card light-blue darken-4 card-content white-text")
+        var date3 = $("<h6>").append(readableDate).addClass("center-align");;
+        var icon3 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[3].weather[0].icon + '.png')
+        var temp3 = $("<p>").append("Temp: " + weatherData.daily[3].temp.max.toFixed(0) + "° f");
+        var wind3 = $("<p>").append("Wind: " + weatherData.daily[3].wind_speed.toFixed(0) + " mph");
+        var humidity3 = $("<p>").append("Humidity: " + weatherData.daily[3].humidity + "%");
+        $("#forecast3").append(date3, icon3, temp3, wind3, humidity3);
 
         //forecast day4
         var readableDate = new Date(weatherData.daily[4].dt *1000).toLocaleDateString("en-US");var temp = $("<div>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° f");
-        var date4 = $("<h6>").append(readableDate);
-        var icon4 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[4].weather[0].icon + '@2x.png')
-        var temp4 = $("<div>").append("Temp: " + weatherData.daily[4].temp.max.toFixed(0) + "° f");
-        var wind4 = $("<div>").append("Wind: " + weatherData.daily[4].wind_speed.toFixed(0) + " mph");
-        var humidity4 = $("<div>").append("Humidity: " + weatherData.daily[4].humidity + "%");
-        $("#forecast4").append(icon4, date4, temp4, wind4, humidity4);
-        $("#forecast4").addClass("col s12 m12 l2 offset-s1 col-content z-depth-4 card light-blue darken-4 card-content white-text")
+        var date4 = $("<h6>").append(readableDate).addClass("center-align");
+        var icon4 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[4].weather[0].icon + '.png').addClass("center-align");
+        var temp4 = $("<p>").append("Temp: " + weatherData.daily[4].temp.max.toFixed(0) + "° f");
+        var wind4 = $("<p>").append("Wind: " + weatherData.daily[4].wind_speed.toFixed(0) + " mph");
+        var humidity4 = $("<p>").append("Humidity: " + weatherData.daily[4].humidity + "%");
+        $("#forecast4").append(date4, icon4, temp4, wind4, humidity4);
 
         //forecast day5
         var readableDate = new Date(weatherData.daily[5].dt *1000).toLocaleDateString("en-US");var temp = $("<div>").append("Temp: " + weatherData.daily[2].temp.max.toFixed(0) + "° f");
-        var date5 = $("<h6>").append(readableDate);
-        var icon5 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[5].weather[0].icon + '@2x.png')
-        var temp5 = $("<div>").append("Temp: " + weatherData.daily[5].temp.max.toFixed(0) + "° f");
-        var wind5 = $("<div>").append("Wind: " + weatherData.daily[5].wind_speed.toFixed(0) + " mph");
-        var humidity5 = $("<div>").append("Humidity: " + weatherData.daily[5].humidity + "%");
-        $("#forecast5").append(icon5, date5, temp5, wind5, humidity5);
-        $("#forecast5").addClass("col s12 m12 l2 offset-s1 col-content z-depth-4 card light-blue darken-4 card-content white-text")
+        var date5 = $("<h6>").append(readableDate).addClass("center-align");;
+        var icon5 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[5].weather[0].icon + '.png');
+        var temp5 = $("<p>").append("Temp: " + weatherData.daily[5].temp.max.toFixed(0) + "° f");
+        var wind5 = $("<p>").append("Wind: " + weatherData.daily[5].wind_speed.toFixed(0) + " mph");
+        var humidity5 = $("<p>").append("Humidity: " + weatherData.daily[5].humidity + "%");
+        $("#forecast5").append(date5, icon5, temp5, wind5, humidity5);
 
     }
 }) //end of document.ready

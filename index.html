@@ -13,13 +13,13 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Weather</title>
 </head>
 
 <header>
   <nav>
     <div class="tiedye nav-wrapper">
-      <a href="#" class="brand-logo center blue-text text-darken-4">Daydream Dashboard</a>
+      <a href="#" class="brand-logo center blue-text text-darken-4">Weather Dashboard</a>
     </div>
   </nav>
 </header>
@@ -32,10 +32,10 @@
         <div class="card-content white-text">
           <span class="card-title">City Search</span>
           <div class="input-field inline">
-            <input id="search" type="input" placeholder="e.g Lawrence, Kansas">
+            <input id="search" type="input" placeholder="e.g Chicago">
             <button id="searchBtn" type="submit">Submit</button>
             <!-- <label for="search">City</label> -->
-            <span class="helper-text white-text">Use format: Kansas City, Kansas</span>
+            <!-- <span class="helper-text white-text">Use format: Kansas City, Kansas</span> -->
             <span id="error" class="helper-text white-text"></span>
           </div>
         </div>
@@ -70,21 +70,15 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col s12 m12">
-          <h5>5 day forecast:</h5>
-        </div>
-
-        <div id="forecast1" class="row"></div>
-          <div class=col s12 m12 l2></div>
-            <div class card-panel>
-
-            </div>
-            
-        <div id="forecast2" class="row"></div>
-        <div id="forecast3" class="row"></div>
-        <div id="forecast4" class="row"></div>
-        <div id="forecast5" class="row"></div>
+     <section class="container"> 
+        <div class="row"></div>
+          <h5 class= "col s12 m12 l12 light-blue-text text-darken-4">5 Day Forecast:</h5>
+          <div id="forecast1" class= "card card-content col s12 m12 l2 z-depth-4 light-blue darken-4 white-text flow-text forecastMargin"></div>
+          <div id="forecast2" class= "card card-content col s12 m12 l2 z-depth-4 light-blue darken-4 white-text flow-text forecastMargin"></div>
+          <div id="forecast3" class= "card card-content col s12 m12 l2 z-depth-4 light-blue darken-4 white-text flow-text forecastMargin"></div>
+          <div id="forecast4" class= "card card-content col s12 m12 l2 z-depth-4 light-blue darken-4 white-text flow-text forecastMargin"></div>
+          <div id="forecast5" class= "card card-content col s12 m12 l2 z-depth-4 light-blue darken-4 white-text flow-text forecastMargin"></div>
+      </section>
 
       </div>
     </div>

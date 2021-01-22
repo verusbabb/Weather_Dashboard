@@ -8,3 +8,8 @@ body {
     /* background-image:url(http://www.zingerbugimages.com/backgrounds/sky_blue_tie_dye_seamless.jpg) */
     background-color: #ffe57f
 }
+
+.forecastMargin {
+  margin: 12px;
+  font-size: 1rem;
+}
