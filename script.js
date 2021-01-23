@@ -2,7 +2,6 @@ $(document).ready(function () {
 
     // a few required global vars
     var city = "";
-    // var queryURL="";
     var cityHistory = [];
 
     // Retrieve any existing local storage
