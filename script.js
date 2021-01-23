@@ -109,9 +109,9 @@ $(document).ready(function () {
         //updating forecast day1 div
         $("#forecasts").empty();
         for (var j = 1; j < 6; j++) {
-            var forecastDiv = $('<div id="forecast' + j + '" class= "card card-content col s12 m12 l2 z-depth-4 light-blue darken-4 white-text flow-text forecastMargin"></div>');
+            var forecastDiv = $('<div id="forecast" + j + class= "card card-content col s12 m12 l2 z-depth-4 light-blue darken-4 white-text flow-text forecastMargin"></div>');
             var readableDate = new Date(weatherData.daily[j].dt * 1000).toLocaleDateString("en-US");
-            var date1 = $("<h6>").text(readableDate).addClass("center-align");
+            var date1 = $("<div>").text(readableDate).addClass("center-align");
             var icon1 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[j].weather[0].icon + ".png");
             var temp1 = $("<p>").text("Temp: " + weatherData.daily[j].temp.max.toFixed(0) + "° F");
             var wind1 = $("<p>").text("Wind: " + weatherData.daily[j].wind_speed.toFixed(0) + " mph");
