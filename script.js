@@ -20,6 +20,7 @@ $(document).ready(function () {
         }
     }
 
+    //Nested API calls to first get lat and lon and then use those values to call OneCall 
     function runAPI(myCity) {
         $.ajax({
             url: 'https://api.openweathermap.org/data/2.5/weather?q=' + myCity + "&units=imperial" + "&APPID=f21ee75183114c7c096d92749641d1f4",
@@ -42,7 +43,8 @@ $(document).ready(function () {
                     .then(updatePage);
             })
     }
-
+    
+    // Writing history buttons to history div
     function historyBtns() {
         // writing recent search to search history
         $("#myHistory").empty();
