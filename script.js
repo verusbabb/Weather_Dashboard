@@ -12,9 +12,6 @@ $(document).ready(function () {
             city = storedCities[0]
             cityHistory = storedCities;
         }
-
-        console.log(cityHistory);
-
         if (city) {
             runAPI(city);
         }
@@ -56,7 +53,6 @@ $(document).ready(function () {
         })
         oldSearch.text(cityHistory[i]);
         if (oldSearch.text()) {
-        console.log(oldSearch);
         oldSearch.addClass("searchHistory");
         $("#myHistory").append(oldSearch);
         }}
@@ -91,7 +87,6 @@ $(document).ready(function () {
 
     // Updating page with response data from API
     function updatePage(weatherData) {
-        console.log(weatherData);
 
         historyBtns();
 
@@ -105,12 +100,10 @@ $(document).ready(function () {
         $("#humidity").text("Humidity: " + weatherData.current.humidity + "%");
         $("#uvIndex").text("UV Index: " + weatherData.current.uvi.toFixed(0));
 
-
-
         //updating forecast day1 div
         $("#forecasts").empty();
         for (var j = 1; j < 6; j++) {
-            var forecastDiv = $('<div id="forecast" + j + class= "card card-content col s12 m12 l2 z-depth-4 light-blue darken-4 white-text flow-text forecastMargin"></div>');
+            var forecastDiv = $('<div id="forecast" + j + class= "card card-content col s12 m12 l2 z-depth-4 green lighten-2 white-text flow-text forecastMargin"></div>');
             var readableDate = new Date(weatherData.daily[j].dt * 1000).toLocaleDateString("en-US");
             var date1 = $("<div>").text(readableDate).addClass("center-align");
             var icon1 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[j].weather[0].icon + ".png");
@@ -121,5 +114,30 @@ $(document).ready(function () {
             $("#forecasts").append(forecastDiv);
         }
 
+        uvColor(weatherData.current.uvi.toFixed(0));
+
+        // color coding UV Index
+        function uvColor(uviIndex) {
+            
+            if (uviIndex < 3) {
+                $("#uvIndex").css("background", "green");
+            }
+            else if (uviIndex < 6) {
+                $("#uvIndex").css("background", "yellow");
+            }
+
+            else if (uviIndex < 8) {
+                $("#uvIndex").css("background", "orange");
+            }
+
+            else if (uviIndext < 11) {
+                $("#uvIndex").css("background", "red");
+            }
+
+            else {$("#uvIndex").css("background", "pink");}
+    }
+
+    
     }
 }) //end of document.ready
+
