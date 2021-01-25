@@ -46,15 +46,17 @@ $(document).ready(function () {
         // writing recent search to search history
         $("#myHistory").empty();
         for (var i = 0; i < 5; i++) {
-        var oldSearch = $("<button>")
+        var oldSearch = $("<a>").addClass("grey-text text-lighten-3 hoverable");
         oldSearch.on("click", function(){
+
             city=$(this).text();
             runAPI(city);
         })
         oldSearch.text(cityHistory[i]);
         if (oldSearch.text()) {
         oldSearch.addClass("searchHistory");
-        $("#myHistory").append(oldSearch);
+        $("#myHistory").append(oldSearch)
+        $("#myHistory").append("<br>");
         }}
     }
 
@@ -91,19 +93,22 @@ $(document).ready(function () {
         historyBtns();
 
         // updating current weather panel
-        $("#cityName").text("Current weather for " + city + ":");
-        $("#currentIcon").empty();
-        var icon = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.current.weather[0].icon + '@2x.png')
-        $("#currentIcon").append(icon);
-        $("#currentTemp").text("Temperature: " + weatherData.current.temp.toFixed(0) + "° fahrenheit");
-        $("#windSpeed").text("Wind speed: " + weatherData.current.wind_speed.toFixed(0) + " mph")
-        $("#humidity").text("Humidity: " + weatherData.current.humidity + "%");
-        $("#uvIndex").text("UV Index: " + weatherData.current.uvi.toFixed(0));
+        // ***
+        $("#weatherNowDiv").empty();
+        // var weatherNow = $('<div>');
+        var weatherFor = $('<h4>').text("Current weather for " + city + ":");
+        var icon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + weatherData.current.weather[0].icon + '@2x.png')
+        var tempNow = $('<div>').text("Temperature: " + weatherData.current.temp.toFixed(0) + "° fahrenheit").css("font-size", "1.5rem");
+        var windNow = $('<div>').text("Wind speed: " + weatherData.current.wind_speed.toFixed(0) + " mph").css("font-size", "1.5rem");
+        var humidityNow = $('<div>').text("Humidity: " + weatherData.current.humidity + "%").css("font-size", "1.5rem");
+        var uvIndexNow = $('<div>').text("UV Index: " + weatherData.current.uvi.toFixed(0)).css("font-size", "1.5rem").attr("class", "uvIndex");
+        $("#weatherNowDiv").append(weatherFor, icon, tempNow, windNow, humidityNow, uvIndexNow);
+        
 
         //updating forecast day1 div
         $("#forecasts").empty();
         for (var j = 1; j < 6; j++) {
-            var forecastDiv = $('<div id="forecast" + j + class= "card card-content col s12 m12 l2 z-depth-4 green lighten-2 white-text flow-text forecastMargin"></div>');
+            var forecastDiv = $('<div id="forecast" + j + class= "card card-content col s12 m12 l2 flow-text z-depth-4 forecastMargin"></div>');
             var readableDate = new Date(weatherData.daily[j].dt * 1000).toLocaleDateString("en-US");
             var date1 = $("<div>").text(readableDate).addClass("center-align");
             var icon1 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[j].weather[0].icon + ".png");
@@ -117,27 +122,32 @@ $(document).ready(function () {
         uvColor(weatherData.current.uvi.toFixed(0));
 
         // color coding UV Index
-        function uvColor(uviIndex) {
+        function uvColor(uvIndex) {
             
-            if (uviIndex < 3) {
-                $("#uvIndex").css("background", "green");
+            if (uvIndex < 3) {
+                $(".uvIndex").css("color", "green");
             }
-            else if (uviIndex < 6) {
-                $("#uvIndex").css("background", "yellow");
-            }
-
-            else if (uviIndex < 8) {
-                $("#uvIndex").css("background", "orange");
+            else if (uvIndex < 6) {
+                $(".uvIndex").css("color", "yellow");
             }
 
-            else if (uviIndext < 11) {
-                $("#uvIndex").css("background", "red");
+            else if (uvIndex < 8) {
+                $(".uvIndex").css("color", "orange");
             }
 
-            else {$("#uvIndex").css("background", "pink");}
+            else if (uvIndext < 11) {
+                $(".uvIndex").css("color", "red");
+            }
+
+            else {$(".uvIndex").css("color", "pink");}
     }
 
     
     }
+
+    $("#clearHistory").click(function(event) {
+        // event.preventDefault()
+        localStorage.clear();
+    });
 }) //end of document.ready
 

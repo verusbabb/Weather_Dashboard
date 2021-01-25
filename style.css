@@ -1,22 +1,22 @@
 body {
-    background-color: #1976d2;
+    background-color:lightgray;
     /* background-color: #ffe57f */
     /* background-image:url(http://www.zingerbugimages.com/backgrounds/deep_blue_sky_background_with_clouds_1800x1600.jpg) */
   }
 
-.tiedye {
-    /* background-image:url(http://www.zingerbugimages.com/backgrounds/sky_blue_tie_dye_seamless.jpg) */
-    background-color: #ff6e40
-}
-
 .forecastMargin {
   margin: 12px;
   font-size: 1rem;
+  background-color: lightgray;
+}
+
+.historyDiv {
+  margin: 0 !important;
+  background-color: darkgray;
 }
 
 .searchHistory {
   font-size: 1.3rem;
-  margin-left: 10px;
   color: black;
 }
 
@@ -26,3 +26,17 @@ body {
   margin-left: 0;
   margin-right: 0;
 }
+
+.boxes {
+  background-color: darkgray;
+  margin-top: 1rem;
+  padding: 1rem;
+  /* padding-top: 1rem; */
+  border: black
+}
+.boxesForecast {
+  background-color: darkgray;
+  border: black;
+  padding: 1rem;
+}
+
