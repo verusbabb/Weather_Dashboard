@@ -1,18 +1,21 @@
 body {
-    background-color: lightblue;
+    /* background-color: lightblue; */
     /* background-color: #ffe57f */
-    /* background-image:url(http://www.zingerbugimages.com/backgrounds/deep_blue_sky_background_with_clouds_1800x1600.jpg) */
+    background-image:url(http://www.zingerbugimages.com/backgrounds/deep_blue_sky_background_with_clouds_1800x1600.jpg);
+    
   }
 
 .forecastMargin {
   margin: 12px;
   font-size: 1rem;
-  background-color: darkgray;
+  /* background-color: darkgray; */
 }
 
 .historyDiv {
   margin: 0 !important;
-  background-color: darkgray;
+  color: black;
+  /* background-color: gray; */
+  /* opacity: .5; */
 }
 
 .searchHistory {
@@ -28,7 +31,7 @@ body {
 }
 
 .boxes {
-  background-color: darkgray;
+  /* background-color: gray; */
   margin-top: 1rem;
   padding: 1rem;
   /* padding-top: 1rem; */
@@ -39,4 +42,10 @@ body {
   border: black;
   padding: 1rem;
 } */
+
+.opacity {
+  opacity: 1;
+  font-weight: bold;
+  color: black;
+}
 

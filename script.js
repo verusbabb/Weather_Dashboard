@@ -46,7 +46,7 @@ $(document).ready(function () {
         // writing recent search to search history
         $("#myHistory").empty();
         for (var i = 0; i < 5; i++) {
-        var oldSearch = $("<a>").addClass("grey-text text-lighten-3 hoverable");
+        var oldSearch = $("<a>").addClass("hoverable");
         oldSearch.on("click", function(){
 
             city=$(this).text();
@@ -108,7 +108,7 @@ $(document).ready(function () {
         //updating forecasts div
         $("#forecasts").empty();
         for (var j = 1; j < 6; j++) {
-            var forecastDiv = $('<div id="forecast" + j + class= "card card-content col s12 m12 l2 flow-text z-depth-4 forecastMargin"></div>');
+            var forecastDiv = $('<div id="forecast" + j + class="col s12 m12 l2 flow-text boxes z-depth-4 forecastMargin opacity"></div>');
             var readableDate = new Date(weatherData.daily[j].dt * 1000).toLocaleDateString("en-US");
             var date1 = $("<div>").text(readableDate).addClass("center-align");
             var icon1 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[j].weather[0].icon + ".png");
