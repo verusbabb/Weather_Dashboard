@@ -105,7 +105,7 @@ $(document).ready(function () {
         $("#weatherNowDiv").append(weatherFor, icon, tempNow, windNow, humidityNow, uvIndexNow);
         
 
-        //updating forecast day1 div
+        //updating forecasts div
         $("#forecasts").empty();
         for (var j = 1; j < 6; j++) {
             var forecastDiv = $('<div id="forecast" + j + class= "card card-content col s12 m12 l2 flow-text z-depth-4 forecastMargin"></div>');

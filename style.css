@@ -1,5 +1,5 @@
 body {
-    background-color:lightgray;
+    background-color: lightblue;
     /* background-color: #ffe57f */
     /* background-image:url(http://www.zingerbugimages.com/backgrounds/deep_blue_sky_background_with_clouds_1800x1600.jpg) */
   }
@@ -7,7 +7,7 @@ body {
 .forecastMargin {
   margin: 12px;
   font-size: 1rem;
-  background-color: lightgray;
+  background-color: darkgray;
 }
 
 .historyDiv {
@@ -22,9 +22,9 @@ body {
 
 #forecasts {
   display: flex;
-  justify-content: space-evenly;
-  margin-left: 0;
-  margin-right: 0;
+  justify-content: space-around;
+  /* margin-left: 0;
+  margin-right: 0; */
 }
 
 .boxes {
@@ -34,9 +34,9 @@ body {
   /* padding-top: 1rem; */
   border: black
 }
-.boxesForecast {
+/* .boxesForecast {
   background-color: darkgray;
   border: black;
   padding: 1rem;
-}
+} */
 
