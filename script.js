@@ -96,8 +96,8 @@ $(document).ready(function () {
         // ***
         $("#weatherNowDiv").empty();
         // var weatherNow = $('<div>');
-        var weatherFor = $('<h4>').text("Current weather for " + city + ":");
-        var icon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + weatherData.current.weather[0].icon + '@2x.png')
+        var weatherFor = $('<h4>').text("Current Weather for " + city + ":").css("font-weight", "bold");
+        var icon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + weatherData.current.weather[0].icon + '@2x.png').addClass("bold")
         var tempNow = $('<div>').text("Temperature: " + weatherData.current.temp.toFixed(0) + "° fahrenheit").css("font-size", "1.5rem");
         var windNow = $('<div>').text("Wind speed: " + weatherData.current.wind_speed.toFixed(0) + " mph").css("font-size", "1.5rem");
         var humidityNow = $('<div>').text("Humidity: " + weatherData.current.humidity + "%").css("font-size", "1.5rem");
@@ -108,10 +108,10 @@ $(document).ready(function () {
         //updating forecasts div
         $("#forecasts").empty();
         for (var j = 1; j < 6; j++) {
-            var forecastDiv = $('<div id="forecast" + j + class="col s12 m12 l2 flow-text boxes z-depth-4 forecastMargin opacity"></div>');
+            var forecastDiv = $('<div id="forecast" + j + class="col s12 m12 l2 flow-text boxes z-depth-4 container opacity"></div>');
             var readableDate = new Date(weatherData.daily[j].dt * 1000).toLocaleDateString("en-US");
-            var date1 = $("<div>").text(readableDate).addClass("center-align");
-            var icon1 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[j].weather[0].icon + ".png");
+            var date1 = $("<div>").text(readableDate).addClass("center-align bold");
+            var icon1 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[j].weather[0].icon + ".png").addClass("bold");
             var temp1 = $("<p>").text("Temp: " + weatherData.daily[j].temp.max.toFixed(0) + "° F");
             var wind1 = $("<p>").text("Wind: " + weatherData.daily[j].wind_speed.toFixed(0) + " mph");
             var humidity1 = $("<p>").text("Humidity: " + weatherData.daily[j].humidity + "%");

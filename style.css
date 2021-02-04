@@ -1,7 +1,29 @@
-body {
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 90%;
+  /* align-items: center; */
+  justify-content: center;
+
+}
+
+.hero::before {
+  content: "";
+  background-image: url("sky.jpg");
+  background-size: cover;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  opacity: .5;
+}
+
+
+/* body {
     /* background-color: lightblue; */
     /* background-color: #ffe57f */
-    background-image:url(http://www.zingerbugimages.com/backgrounds/deep_blue_sky_background_with_clouds_1800x1600.jpg);
+    background-image: url("sky.jpg"); */
     
   }
 
@@ -37,15 +59,11 @@ body {
   /* padding-top: 1rem; */
   border: black
 }
-/* .boxesForecast {
-  background-color: darkgray;
-  border: black;
-  padding: 1rem;
-} */
+.bold {
+  font-weight: bold;
+}
 
 .opacity {
-  opacity: 1;
-  font-weight: bold;
-  color: black;
+  opacity: .9;
 }
 
