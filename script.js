@@ -110,7 +110,7 @@ $(document).ready(function () {
         for (var j = 1; j < 6; j++) {
             var forecastDiv = $('<div id="forecast" + j + class="col s12 m12 l2 flow-text boxes z-depth-4 container opacity"></div>');
             var readableDate = new Date(weatherData.daily[j].dt * 1000).toLocaleDateString("en-US");
-            var date1 = $("<div>").text(readableDate).addClass("center-align bold");
+            var date1 = $("<div>").text(readableDate).addClass("center-align bold").css({"font-size": "1.0rem"});
             var icon1 = $("<img>").attr('src', 'http://openweathermap.org/img/wn/' + weatherData.daily[j].weather[0].icon + ".png").addClass("bold");
             var temp1 = $("<p>").text("Temp: " + weatherData.daily[j].temp.max.toFixed(0) + "° F").addClass("detailsText");
             var wind1 = $("<p>").text("Wind: " + weatherData.daily[j].wind_speed.toFixed(0) + " mph").addClass("detailsText");
